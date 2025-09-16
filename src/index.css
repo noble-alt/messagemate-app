@@ -2,95 +2,97 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* WhatsApp-like Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* WhatsApp color palette */
+    --whatsapp-green: 150 100% 30%;
+    --whatsapp-green-light: 150 100% 35%;
+    --whatsapp-green-dark: 150 100% 25%;
+    
+    --whatsapp-teal: 180 100% 25%;
+    --whatsapp-teal-light: 180 100% 30%;
+    
+    --whatsapp-gray-light: 220 14% 96%;
+    --whatsapp-gray: 220 14% 90%;
+    --whatsapp-gray-medium: 220 9% 46%;
+    --whatsapp-gray-dark: 220 13% 18%;
+    
+    --whatsapp-blue: 213 100% 50%;
+    --whatsapp-blue-light: 213 100% 95%;
+    
+    /* Base theme */
+    --background: var(--whatsapp-gray-light);
+    --foreground: var(--whatsapp-gray-dark);
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: var(--whatsapp-gray-dark);
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: var(--whatsapp-gray-dark);
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: var(--whatsapp-green);
+    --primary-foreground: 0 0% 100%;
+    
+    --primary-light: var(--whatsapp-green-light);
+    --primary-dark: var(--whatsapp-green-dark);
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: var(--whatsapp-gray);
+    --secondary-foreground: var(--whatsapp-gray-dark);
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: var(--whatsapp-gray);
+    --muted-foreground: var(--whatsapp-gray-medium);
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: var(--whatsapp-teal);
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: var(--whatsapp-gray);
+    --input: 0 0% 100%;
+    --ring: var(--whatsapp-green);
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Chat specific colors */
+    --chat-background: var(--whatsapp-gray-light);
+    --chat-bubble-sent: var(--whatsapp-green);
+    --chat-bubble-received: 0 0% 100%;
+    --chat-bubble-sent-text: 0 0% 100%;
+    --chat-bubble-received-text: var(--whatsapp-gray-dark);
+    
+    /* Status colors */
+    --status-online: 120 100% 25%;
+    --status-away: 45 100% 50%;
+    --status-offline: var(--whatsapp-gray-medium);
+    
+    /* Message status */
+    --message-sent: var(--whatsapp-gray-medium);
+    --message-delivered: var(--whatsapp-blue);
+    --message-read: var(--whatsapp-blue);
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --whatsapp-dark-bg: 220 13% 9%;
+    --whatsapp-dark-surface: 220 13% 14%;
+    --whatsapp-dark-border: 220 13% 18%;
+    
+    --background: var(--whatsapp-dark-bg);
+    --foreground: 220 14% 96%;
+    --card: var(--whatsapp-dark-surface);
+    --card-foreground: 220 14% 96%;
+    --popover: var(--whatsapp-dark-surface);
+    --popover-foreground: 220 14% 96%;
+    --muted: var(--whatsapp-dark-border);
+    --muted-foreground: 220 9% 46%;
+    --border: var(--whatsapp-dark-border);
+    --input: var(--whatsapp-dark-surface);
+    
+    --chat-background: var(--whatsapp-dark-bg);
+    --chat-bubble-received: var(--whatsapp-dark-surface);
+    --chat-bubble-received-text: 220 14% 96%;
   }
 }
 
@@ -100,6 +102,46 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
+  
+  /* Custom scrollbar for webkit browsers */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/20 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/30;
+  }
+}
+
+/* Custom animations for typing indicator */
+@keyframes bounce-typing {
+  0%, 60%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-bounce-typing {
+  animation: bounce-typing 1.4s infinite;
+}
+
+.animate-bounce-typing:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.animate-bounce-typing:nth-child(3) {
+  animation-delay: 0.2s;
 }

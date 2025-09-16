@@ -22,6 +22,8 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          light: "hsl(var(--primary-light))",
+          dark: "hsl(var(--primary-dark))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -56,6 +58,36 @@ export default {
           "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
+        },
+        whatsapp: {
+          green: "hsl(var(--whatsapp-green))",
+          "green-light": "hsl(var(--whatsapp-green-light))",
+          "green-dark": "hsl(var(--whatsapp-green-dark))",
+          teal: "hsl(var(--whatsapp-teal))",
+          "teal-light": "hsl(var(--whatsapp-teal-light))",
+          "gray-light": "hsl(var(--whatsapp-gray-light))",
+          gray: "hsl(var(--whatsapp-gray))",
+          "gray-medium": "hsl(var(--whatsapp-gray-medium))",
+          "gray-dark": "hsl(var(--whatsapp-gray-dark))",
+          blue: "hsl(var(--whatsapp-blue))",
+          "blue-light": "hsl(var(--whatsapp-blue-light))",
+        },
+        chat: {
+          background: "hsl(var(--chat-background))",
+          "bubble-sent": "hsl(var(--chat-bubble-sent))",
+          "bubble-received": "hsl(var(--chat-bubble-received))",
+          "bubble-sent-text": "hsl(var(--chat-bubble-sent-text))",
+          "bubble-received-text": "hsl(var(--chat-bubble-received-text))",
+        },
+        status: {
+          online: "hsl(var(--status-online))",
+          away: "hsl(var(--status-away))",
+          offline: "hsl(var(--status-offline))",
+        },
+        message: {
+          sent: "hsl(var(--message-sent))",
+          delivered: "hsl(var(--message-delivered))",
+          read: "hsl(var(--message-read))",
         },
       },
       borderRadius: {
