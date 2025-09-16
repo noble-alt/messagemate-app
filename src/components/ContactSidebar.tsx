@@ -22,7 +22,7 @@ export const ContactSidebar = ({
       <div className="flex items-center justify-between p-4 border-b border-border">
         <h1 className="text-xl font-semibold flex items-center gap-2">
           <MessageCircle className="w-6 h-6 text-primary" />
-          WhatsApp Web
+          WABTECH
         </h1>
         <Button variant="ghost" size="icon">
           <MoreVertical className="w-5 h-5" />
