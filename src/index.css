@@ -2,22 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-/* WhatsApp-like Design System */
+/* Purple & Ash Design System */
 
 @layer base {
   :root {
-    /* WhatsApp color palette */
-    --whatsapp-green: 150 100% 30%;
-    --whatsapp-green-light: 150 100% 35%;
-    --whatsapp-green-dark: 150 100% 25%;
+    /* Purple and Ash color palette */
+    --purple-primary: 270 95% 45%;
+    --purple-light: 270 95% 55%;
+    --purple-dark: 270 95% 35%;
     
-    --whatsapp-teal: 180 100% 25%;
-    --whatsapp-teal-light: 180 100% 30%;
+    --ash-light: 210 10% 95%;
+    --ash-medium: 210 10% 85%;
+    --ash-dark: 210 15% 25%;
+    --ash-darker: 210 20% 15%;
     
-    --whatsapp-gray-light: 220 14% 96%;
-    --whatsapp-gray: 220 14% 90%;
-    --whatsapp-gray-medium: 220 9% 46%;
-    --whatsapp-gray-dark: 220 13% 18%;
+    --whatsapp-gray-light: var(--ash-light);
+    --whatsapp-gray: var(--ash-medium);
+    --whatsapp-gray-medium: 210 8% 50%;
+    --whatsapp-gray-dark: var(--ash-dark);
     
     --whatsapp-blue: 213 100% 50%;
     --whatsapp-blue-light: 213 100% 95%;
@@ -32,11 +34,11 @@
     --popover: 0 0% 100%;
     --popover-foreground: var(--whatsapp-gray-dark);
 
-    --primary: var(--whatsapp-green);
+    --primary: var(--purple-primary);
     --primary-foreground: 0 0% 100%;
     
-    --primary-light: var(--whatsapp-green-light);
-    --primary-dark: var(--whatsapp-green-dark);
+    --primary-light: var(--purple-light);
+    --primary-dark: var(--purple-dark);
 
     --secondary: var(--whatsapp-gray);
     --secondary-foreground: var(--whatsapp-gray-dark);
@@ -44,24 +46,24 @@
     --muted: var(--whatsapp-gray);
     --muted-foreground: var(--whatsapp-gray-medium);
 
-    --accent: var(--whatsapp-teal);
+    --accent: var(--purple-light);
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: var(--whatsapp-gray);
+    --border: var(--ash-medium);
     --input: 0 0% 100%;
-    --ring: var(--whatsapp-green);
+    --ring: var(--purple-primary);
 
     --radius: 0.5rem;
 
     /* Chat specific colors */
-    --chat-background: var(--whatsapp-gray-light);
-    --chat-bubble-sent: var(--whatsapp-green);
+    --chat-background: var(--ash-light);
+    --chat-bubble-sent: var(--purple-primary);
     --chat-bubble-received: 0 0% 100%;
     --chat-bubble-sent-text: 0 0% 100%;
-    --chat-bubble-received-text: var(--whatsapp-gray-dark);
+    --chat-bubble-received-text: var(--ash-dark);
     
     /* Status colors */
     --status-online: 120 100% 25%;

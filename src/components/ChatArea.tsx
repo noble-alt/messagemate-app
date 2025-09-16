@@ -36,7 +36,7 @@ export const ChatArea = ({ contact, messages }: ChatAreaProps) => {
       <div className="flex-1 flex items-center justify-center bg-chat-background">
         <div className="text-center text-muted-foreground">
           <MessageCircle className="w-16 h-16 mx-auto mb-4 opacity-50" />
-          <h2 className="text-xl mb-2">WABTECH</h2>
+          <h2 className="text-xl mb-2">Best line</h2>
           <p>Select a chat to start messaging</p>
         </div>
       </div>
