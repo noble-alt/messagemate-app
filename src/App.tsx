@@ -12,6 +12,8 @@ const queryClient = new QueryClient();
 
 const AppContent = () => {
   const { user, loading } = useAuth();
+  
+  console.log('AppContent render:', { user: !!user, loading });
 
   if (loading) {
     return (

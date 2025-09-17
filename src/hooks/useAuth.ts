@@ -7,9 +7,15 @@ export const useAuth = () => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    console.log('useAuth: Starting authentication check')
+    
     // Get initial session
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    supabase.auth.getSession().then(({ data: { session }, error }) => {
+      console.log('useAuth: Session check result:', { session: !!session, error })
       setUser(session?.user ?? null)
+      setLoading(false)
+    }).catch(err => {
+      console.error('useAuth: Session check failed:', err)
       setLoading(false)
     })
 
