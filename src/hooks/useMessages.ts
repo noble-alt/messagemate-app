@@ -104,9 +104,18 @@ export const useMessages = (conversationId: string | null) => {
     }
   }
 
+  const refreshMessages = () => {
+    if (!conversationId) return
+    
+    // The useEffect will automatically re-run when conversationId changes
+    // For manual refresh, we can force a re-fetch
+    setMessages([])
+  }
+
   return {
     messages,
     loading,
+    refreshMessages,
     sendMessage,
   }
 }

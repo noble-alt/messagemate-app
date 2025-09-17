@@ -1,4 +1,4 @@
-import { Contact, Message } from "../components/ChatInterface";
+import { Contact, Message } from "../types";
 
 export const mockContacts: Contact[] = [
   {

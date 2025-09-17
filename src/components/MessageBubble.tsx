@@ -1,9 +1,9 @@
 import { Check, CheckCheck } from "lucide-react";
-import { Message } from "./ChatInterface";
+import { MessageType } from "../types";
 import { cn } from "../lib/utils";
 
 interface MessageBubbleProps {
-  message: Message;
+  message: MessageType;
   isOwn: boolean;
 }
 
@@ -39,13 +39,13 @@ export const MessageBubble = ({ message, isOwn }: MessageBubbleProps) => {
           ? "bg-chat-bubble-sent text-chat-bubble-sent-text rounded-br-sm" 
           : "bg-chat-bubble-received text-chat-bubble-received-text rounded-bl-sm"
       )}>
-        <p className="text-sm break-words">{message.text}</p>
+        <p className="text-sm break-words">{message.content}</p>
         
         <div className={cn(
           "flex items-center justify-end gap-1 mt-1",
           isOwn ? "text-chat-bubble-sent-text/70" : "text-chat-bubble-received-text/70"
         )}>
-          <span className="text-xs">{formatTime(message.timestamp)}</span>
+          <span className="text-xs">{formatTime(message.created_at)}</span>
           {isOwn && getStatusIcon()}
         </div>
       </div>

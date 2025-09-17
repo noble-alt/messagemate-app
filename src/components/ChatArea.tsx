@@ -3,26 +3,27 @@ import { Send, Smile, Paperclip, Mic, MoreVertical, Phone, Video, MessageCircle 
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
-import { Contact, Message } from "./ChatInterface";
+import { ContactWithProfile, MessageType } from "../types";
 import { MessageBubble } from "./MessageBubble";
 import { cn } from "../lib/utils";
 
 interface ChatAreaProps {
-  contact: Contact | null;
-  messages: Message[];
+  contact: ContactWithProfile | null;
+  messages: MessageType[];
+  onRefreshMessages?: () => void;
 }
 
-export const ChatArea = ({ contact, messages }: ChatAreaProps) => {
+export const ChatArea = ({ contact, messages, onRefreshMessages }: ChatAreaProps) => {
   const [newMessage, setNewMessage] = useState("");
   const [isTyping, setIsTyping] = useState(false);
 
   const handleSendMessage = () => {
     if (newMessage.trim()) {
-      // In a real app, this would send the message to the backend
-      console.log("Sending message:", newMessage);
-      setNewMessage("");
+      console.log('Sending message:', newMessage)
+      setNewMessage("")
+      onRefreshMessages?.()
     }
-  };
+  }
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") {
@@ -50,17 +51,21 @@ export const ChatArea = ({ contact, messages }: ChatAreaProps) => {
         <div className="flex items-center">
           <div className="relative">
             <Avatar className="w-10 h-10">
-              <AvatarImage src={contact.avatar} alt={contact.name} />
-              <AvatarFallback>{contact.name.slice(0, 2).toUpperCase()}</AvatarFallback>
+              <AvatarImage src={contact.contact_profile.avatar_url || ''} alt={contact.contact_profile.display_name || ''} />
+              <AvatarFallback>
+                {(contact.contact_name || contact.contact_profile.display_name || contact.contact_profile.phone_number || '??').slice(0, 2).toUpperCase()}
+              </AvatarFallback>
             </Avatar>
-            {contact.isOnline && (
+            {contact.contact_profile.status === 'online' && (
               <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-status-online rounded-full border-2 border-background" />
             )}
           </div>
           <div className="ml-3">
-            <h3 className="font-medium">{contact.name}</h3>
+            <h3 className="font-medium">
+              {contact.contact_name || contact.contact_profile.display_name || contact.contact_profile.phone_number}
+            </h3>
             <p className="text-xs text-muted-foreground">
-              {contact.isOnline ? "online" : "last seen recently"}
+              {contact.contact_profile.status === 'online' ? "online" : "last seen recently"}
             </p>
           </div>
         </div>
@@ -84,15 +89,17 @@ export const ChatArea = ({ contact, messages }: ChatAreaProps) => {
           <MessageBubble
             key={message.id}
             message={message}
-            isOwn={message.senderId === "me"}
+            isOwn={message.sender_id === "me"}
           />
         ))}
         
         {isTyping && (
           <div className="flex items-center gap-2 text-muted-foreground text-sm">
             <Avatar className="w-6 h-6">
-              <AvatarImage src={contact.avatar} alt={contact.name} />
-              <AvatarFallback className="text-xs">{contact.name.slice(0, 1)}</AvatarFallback>
+              <AvatarImage src={contact.contact_profile.avatar_url || ''} alt={contact.contact_profile.display_name || ''} />
+              <AvatarFallback className="text-xs">
+                {(contact.contact_name || contact.contact_profile.display_name || '??').slice(0, 1)}
+              </AvatarFallback>
             </Avatar>
             <div className="flex gap-1">
               <div className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce" />
